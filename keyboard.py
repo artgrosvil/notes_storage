@@ -2,8 +2,7 @@ from telebot import types
 
 def keyboard_main():
     markup = types.ReplyKeyboardMarkup()
-    markup.row('Добавить заметку')
-    markup.row('Список заметок')
+    markup.row('Добавить заметку', 'Список заметок')
     return markup
 
 def keyboard_change_notes(count):
