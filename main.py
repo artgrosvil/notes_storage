@@ -1,15 +1,15 @@
-import config
 import keyboard
 import db
 import telebot
+from datetime import datetime
 
-bot = telebot.TeleBot(config.api_key)
+bot = telebot.TeleBot('325797002:AAFAm_xl9zv8ZX4ji6s0zrSAdDOFQmhEDSk')
 
 def map_list_notes(list_notes):
     string_notes = ''
     dict_id_notes = {}
     for i, el in enumerate(list_notes):
-        string_notes = string_notes + str(i + 1) + ') ' + str(el[2]) + ' \nДата: ' + str(el[3]) + '\n\n'
+        string_notes = string_notes + str(i + 1) + ') ' + str(el[1]) + ' \nДата: ' + str(el[3]) + '\n\n'
         dict_id_notes.update({i+1:el[0]})
     notes = [string_notes, dict_id_notes]
     return notes
@@ -27,7 +27,7 @@ def handle_add_note(message):
 
 def add_note(message):
     markup = keyboard.keyboard_main()
-    db.insert_note(message.chat.id, message.text)
+    db.insert_note(message.chat.id, message.text, datetime.now())
     bot.send_message(message.chat.id, 'Заметка добавлена!', reply_markup=markup)
 
 @bot.message_handler(regexp='Список заметок')
