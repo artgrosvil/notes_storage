@@ -1,5 +1,0 @@
-api_key = '325797002:AAFAm_xl9zv8ZX4ji6s0zrSAdDOFQmhEDSk'
-db_host = '46.101.197.159'
-db_name = 'notes_storage'
-db_user = 'notes_storage_user'
-db_password = 'notes_storage_password'
