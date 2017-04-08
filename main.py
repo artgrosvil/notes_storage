@@ -27,7 +27,7 @@ def handle_add_note(message):
 
 def add_note(message):
     markup = keyboard.keyboard_main()
-    db.insert_note(message.chat.id, message.text, datetime.now())
+    db.insert_note(message.chat.id, message.text, datetime.now().strftime('%d, %b %Y, %H:%M'))
     bot.send_message(message.chat.id, 'Заметка добавлена!', reply_markup=markup)
 
 @bot.message_handler(regexp='Список заметок')
